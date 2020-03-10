@@ -53,6 +53,6 @@ class MainWindow(tk.Frame):
 root = tk.Tk()
 window = MainWindow(root)
 window.pack(side="top", fill="both", expand=True)
-root.title("Will U pass your final exam?")
+root.title("Will you pass your final exam?")
 root.mainloop()
 
