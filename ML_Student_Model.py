@@ -8,6 +8,7 @@ import tensorflow
 import matplotlib.pyplot as pyplot
 import pickle
 from matplotlib import style
+import math
 
 # https://archive.ics.uci.edu/ml/datasets/student%2Bperformance
 print("Reading data...\n")
@@ -70,9 +71,11 @@ def calculator(x):
     research_mat = [[1, 1, 1, 1, 1]]
     research_mat.append(x)
     predictions = linear.predict(research_mat)
-    #print(predictions[1],research_mat[1])
-    return predictions[1]
-
+    result = predictions[1]
+    result = math.floor(result)
+    if result < 0:
+        result = 0
+    return result
 
 
 

@@ -1,58 +1,66 @@
-# import ML_Student_Model as model
-import tkinter as tk
+import ML_Student_Model as model
+from tkinter import *
 
-x = [11,11,2,0,3]
-#value = model.calculator(elo)
-#print(value)
-'''
-win = tk.Tk()
-win.geometry("324x100")
-win.resizable(0, 0)
-win.title("Will U pass your final exam?")
+root = Tk()
+root.title("G3 Calculator")
+root.resizable(False, False)
+root.geometry("300x200+900+400")
 
-frame = tk.Frame(win)
-frame.pack()
+def calc():
+    temp = []
+    temp.append(int(G1.get()))
+    temp.append(int(G2.get()))
+    temp.append(int(study.get()))
+    temp.append(int(fails.get()))
+    temp.append(int(ab.get()))
 
-tk.Label(frame, text = "sdds").pack()
-
-
-def btn_calc(item):
-    global expression
-    expression = expression + str(item)
-    input_text.set(expression)
-
-def btn_clear():
-    global expression
-    expression = ""
-    input_text.set(expression)
-
-'''
+    G3 = model.calculator(temp)
+    myLabel3 = Label(root, text="Your score:")
+    myLabel3.grid(row=9, column=1)
+    myLabel4 = Label(root, text=G3)
+    myLabel4.grid(row=9, column=2)
 
 
-class MainWindow(tk.Frame):
+myLabel1 = Label(root, text=" Hello, welcome in G3 calculator!")
+myLabel1.grid(row=1, column=2)
+myLabel2 = Label(root,text = "Please input data:")
+myLabel2.grid(row=2, column=1)
 
-    def __init__(self, *args, **kwargs):
-        tk.Frame.__init__(self, *args, **kwargs)
-        self.nazwa_label = tk.Label(self, text="Input G1, G2 points, hours of studytime, number of failures and hours of absence:")
-        self.nazwa_label.pack(fill=tk.X)
+g1Label = Label(root,text = "G1")
+g1Label.grid(row=3, column=1)
+g2Label = Label(root,text = "G2")
+g2Label.grid(row=4, column=1)
+studyLabel = Label(root,text = "Study time")
+studyLabel.grid(row=5, column=1)
+failLabel = Label(root,text = "Failures")
+failLabel.grid(row=6, column=1)
+abLabel = Label(root,text = "Absences")
+abLabel.grid(row=7, column=1)
 
-        self.add_btn = tk.Button(self, text="Input data", command=self.input_data())
-        self.add_btn.pack(fill=tk.X)
+G1 = Entry(root)
+G1.grid(row=3, column=2)
+G1.insert(0, 0)
 
-    def input_data(self):
-            t = tk.Toplevel(self)
-            t.wm_title("Adding item #%s")
+G2 = Entry(root)
+G2.grid(row=4, column=2)
+G2.insert(0, 0)
 
-            nazwa_label = tk.Label(t, text="Nazwa:")
-            nazwa_txt = tk.Entry(t, width=10)
-            nazwa_label.grid(column=0, row=0, sticky=tk.W)
-            nazwa_txt.grid(column=1, row=0)
+study = Entry(root)
+study.grid(row=5, column=2)
+study.insert(0, 0)
+
+fails = Entry(root)
+fails.grid(row=6, column=2)
+fails.insert(0, 0)
+
+ab = Entry(root)
+ab.grid(row=7, column=2)
+ab.insert(0, 0)
 
 
-
-root = tk.Tk()
-window = MainWindow(root)
-window.pack(side="top", fill="both", expand=True)
-root.title("Will you pass your final exam?")
+myButton = Button(root, text="Calculate", command=calc)
+myButton.grid(row=8, column=2)
 root.mainloop()
+
+
 
