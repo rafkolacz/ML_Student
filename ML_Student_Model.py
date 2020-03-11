@@ -58,7 +58,7 @@ linear = pickle.load(pickle_in)
 #    print(predictions[x], x_test[x], y_test[x])
 
 '''
-p = 'G1'
+p = 'studytime'
 style.use("ggplot")
 pyplot.scatter(data[p], data["G3"])
 pyplot.xlabel(p)
@@ -75,6 +75,8 @@ def calculator(x):
     result = math.floor(result)
     if result < 0:
         result = 0
+    if result > 20:
+        result = 20
     return result
 
 
