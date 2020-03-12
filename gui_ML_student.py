@@ -18,7 +18,7 @@ def alert():
     alert.title("Error")
     alert.resizable(False,False)
     alert.geometry("220x50+900+400")
-    alertLabel = Label(alert, text="Wrong data, use only numbers!").pack()
+    alertLabel = Label(alert, text="Wrong data, use only integer numbers!").pack()
     myButton = Button(alert, text="Close", command=alert.destroy).pack()
 
 
