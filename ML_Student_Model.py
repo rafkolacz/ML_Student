@@ -22,9 +22,9 @@ predict = "G3"      # program will predict final grade
 X = np.array(data.drop([predict], 1))
 y = np.array(data[predict])
 
-print("Creating model...\n")
+# print("Creating model...\n")
 
-x_train, x_test, y_train, y_test = sklearn.model_selection.train_test_split(X, y, test_size=0.1)    # create model
+# x_train, x_test, y_train, y_test = sklearn.model_selection.train_test_split(X, y, test_size=0.1)    # create model
 
 best = 0    # loop for training, for better performance use colab
 '''for _ in range(30):
